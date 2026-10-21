@@ -1,2 +1,16 @@
-# MS-Life-Assistant
-A rule-based health and lifestyle tracking app designed to help people with Multiple Sclerosis monitor symptoms, track daily well-being, and identify meaningful changes through multi-level alerts.
+# همراه ام‌اس
+
+برنامه وب ایستا (بدون سرور) برای ثبت علائم، دارو، تزریق و آزمایش، تحلیل روند، گزارش برای پزشک و مشاور علائم الگوریتمی (بدون هوش مصنوعی).
+
+## اجرا روی کامپیوتر
+فایل index.html را در VS Code با افزونه Live Server باز کنید (یا دوبار کلیک کنید).
+
+## انتشار با GitHub و Vercel
+1. در GitHub یک مخزن جدید بسازید و همین فایل‌ها را آپلود کنید (index.html, app.js, engine.js, kb.js, test.js, README.md).
+2. در Vercel گزینه Add New Project را بزنید، مخزن را انتخاب کنید و Deploy بزنید. تنظیم دیگری لازم نیست.
+
+## نکته مهم
+پایگاه دانش علائم (kb.js) باید پیش از انتشار عمومی توسط نورولوژیست بازبینی شود.
+
+## آزمون الگوریتم
+با Node.js نصب‌شده، در ترمینال بزنید: node test.js
