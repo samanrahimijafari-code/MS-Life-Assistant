@@ -4,500 +4,71 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>همراه ام‌اس</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-/* ===== رنگ‌ها: برای تغییر رنگ‌ها فقط این بخش را عوض کنید ===== */
-:root{
-  --orange:#F28C28;      /* رنگ منوی سمت راست */
-  --orange-dark:#C96A10;
-  --navy:#0F1B3D;        /* رنگ بخش اصلی (سرمه‌ای تیره) */
-  --navy-2:#182853;      /* کارت‌ها */
-  --navy-3:#22356B;      /* کادر و ورودی‌ها */
-  --text:#EEF1FA;
-  --muted:#A9B4D6;
-  --ok:#4ADE80; --warn:#FACC15; --bad:#F87171;
-}
-*{box-sizing:border-box}
-html,body{margin:0;height:100%}
-body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--navy);color:var(--text);display:flex;direction:rtl;line-height:1.8}
-/* منوی راست */
-aside{width:230px;background:var(--orange);color:#2a1700;display:flex;flex-direction:column;padding:18px 12px;flex-shrink:0;position:sticky;top:0;height:100vh}
-aside h1{font-size:22px;margin:0 8px 18px;font-weight:800}
-aside nav{display:flex;flex-direction:column;gap:4px}
-aside button{background:none;border:0;font:inherit;font-weight:600;color:#2a1700;text-align:right;padding:10px 12px;border-radius:10px;cursor:pointer}
-aside button:hover{background:rgba(255,255,255,.25)}
-aside button.on{background:var(--navy);color:#fff}
-aside button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #fff;outline-offset:2px}
-aside small{margin-top:auto;font-size:12px;padding:8px}
-main{flex:1;padding:28px;max-width:980px;margin-inline:auto;width:100%}
-h2{margin:0 0 16px;font-size:24px}
-h3{margin:0 0 10px;font-size:17px}
-.card{background:var(--navy-2);border:1px solid var(--navy-3);border-radius:14px;padding:18px;margin-bottom:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.stat b{display:block;font-size:30px;color:var(--orange)}
-label{display:block;font-size:14px;color:var(--muted);margin:10px 0 4px}
-input,select,textarea{width:100%;background:var(--navy);color:var(--text);border:1px solid var(--navy-3);border-radius:10px;padding:10px;font:inherit}
-input[type=range]{padding:0;accent-color:var(--orange)}
-.btn{background:var(--orange);color:#2a1700;border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:700;cursor:pointer;margin-top:12px}
-.btn:hover{background:var(--orange-dark);color:#fff}
-.btn.sec{background:var(--navy-3);color:var(--text)}
-.btn.sm{padding:4px 10px;margin:0;font-size:13px}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{padding:8px;border-bottom:1px solid var(--navy-3);text-align:right;vertical-align:top}
-th{color:var(--muted);font-weight:600}
-.tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:13px;font-weight:600}
-.t-ok{background:rgba(74,222,128,.15);color:var(--ok)}.t-warn{background:rgba(250,204,21,.15);color:var(--warn)}.t-bad{background:rgba(248,113,113,.15);color:var(--bad)}
-.empty{color:var(--muted);padding:10px 0}
-.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:140px}
-.page{display:none}.page.on{display:block}
-.disc{font-size:13px;color:var(--muted);border-right:3px solid var(--orange);padding:4px 10px;margin:10px 0}
-/* چت */
-#chatbox{height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:6px}
-.msg{max-width:85%;padding:10px 14px;border-radius:14px;white-space:pre-wrap}
-.msg.u{background:var(--orange);color:#2a1700;align-self:flex-start;border-end-start-radius:2px}
-.msg.a{background:var(--navy-3);align-self:flex-end;border-end-end-radius:2px}
-.alert{background:rgba(248,113,113,.18);border:1px solid var(--bad);color:#fecaca;padding:12px;border-radius:12px;margin-bottom:10px;font-weight:600}
-svg text{fill:var(--muted);font-family:Vazirmatn,Tahoma;font-size:11px}
-@media(max-width:760px){
-  body{flex-direction:column}
-  aside{width:100%;height:auto;position:static;padding:10px}
-  aside nav{flex-direction:row;overflow-x:auto}aside button{white-space:nowrap}aside small{display:none}
-  main{padding:16px}
-}
-@media print{
-  body{background:#fff;color:#000}aside,.noprint{display:none!important}
-  .card{background:#fff;border-color:#999}th{color:#000}td,th{border-color:#bbb}.page{display:none!important}#p-doctor{display:block!important}
-  .stat b{color:#000}.tag{border:1px solid #999;background:none!important;color:#000!important}
-}
+:root{--bg:#fdf8f3;--card:#fff;--tx:#2b2b2b;--mu:#777;--pr:#e8741a;--bd:#eadfd3}
+@media(prefers-color-scheme:dark){:root{--bg:#1c1917;--card:#292524;--tx:#f5f5f4;--mu:#a8a29e;--pr:#fb923c;--bd:#44403c}}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Vazirmatn,sans-serif;background:var(--bg);color:var(--tx);line-height:1.9}
+header{background:var(--card);border-bottom:1px solid var(--bd);padding:8px 14px;position:sticky;top:0;z-index:5}
+header h1{margin:0 0 4px;font-size:18px}nav{display:flex;gap:6px;flex-wrap:wrap}
+button,.btn{background:var(--card);border:1px solid var(--bd);color:var(--tx);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit}
+nav button.on,button.pr{background:var(--pr);color:#fff;border-color:var(--pr)}
+main{max-width:860px;margin:14px auto;padding:0 12px}.sec{display:none}.sec.on{display:block}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+input,select,textarea{width:100%;padding:8px;margin:3px 0 10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+label{font-size:14px;color:var(--mu)}h2,h3{margin:4px 0 10px}.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1;min-width:130px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{border:1px solid var(--bd);padding:5px;text-align:right}
+.bar{height:14px;background:var(--pr);border-radius:4px}.small{font-size:12px;color:var(--mu)}
+.warn{background:#fef3c7;color:#92400e;padding:8px 10px;border-radius:8px;font-size:13px;margin-bottom:10px}
+.late{color:#dc2626;font-weight:bold}.msg{padding:10px;border-radius:10px;margin:6px 0;white-space:pre-wrap}
+.me{background:var(--pr);color:#fff}.bot{background:var(--bg);border:1px solid var(--bd)}
+.l3{border-right:6px solid #dc2626}.l2{border-right:6px solid #f59e0b}.l1{border-right:6px solid #16a34a}
+#chatbox{max-height:430px;overflow:auto}
+@media print{header,.noprint{display:none!important}body{background:#fff;color:#000}.card{border:none}}
 </style>
 </head>
 <body>
-
-<aside>
-  <h1>🧡 همراه ام‌اس</h1>
-  <nav id="nav">
-    <button data-p="home" class="on">🏠 خانه</button>
-    <button data-p="log">✍️ ثبت علائم</button>
-    <button data-p="analysis">📈 تحلیل روند</button>
-    <button data-p="doctor">🩺 خلاصه برای پزشک</button>
-    <button data-p="meds">💊 دارو و آزمایش</button>
-    <button data-p="ai">🤖 مشاور هوشمند</button>
-    <button data-p="data">💾 پشتیبان‌گیری</button>
-  </nav>
-  <small>اطلاعات شما فقط روی همین دستگاه ذخیره می‌شود.</small>
-</aside>
-
+<header><h1>🧡 همراه ام‌اس</h1><nav id="nav"></nav></header>
 <main>
+<div class="sec" id="home"><div class="card"><h2>سلام، امروز حالتان چطور است؟</h2><div id="banners"></div>
+<div class="warn">این برنامه جایگزین پزشک نیست. در شرایط اورژانسی با ۱۱۵ تماس بگیرید.</div></div>
+<div class="card"><h3>داروها و آزمایش‌های پیش رو</h3><div id="dueBox"></div></div>
+<div class="card"><h3>آخرین علائم</h3><div id="recent"></div></div></div>
 
-<!-- خانه -->
-<section class="page on" id="p-home">
-  <h2>سلام، امروز حالتان چطور است؟</h2>
-  <div class="grid" id="homeStats"></div>
-  <div class="card" style="margin-top:16px"><h3>داروها و تزریق‌های پیش رو</h3><div id="homeMeds"></div></div>
-  <div class="card"><h3>آخرین علائم ثبت‌شده</h3><div id="homeLast"></div></div>
-  <p class="disc">این برنامه جایگزین پزشک نیست. در شرایط اورژانسی با اورژانس (۱۱۵) تماس بگیرید.</p>
-</section>
+<div class="sec" id="log"><div class="card"><h2>ثبت علائم</h2>
+<div class="row"><div><label>تاریخ</label><input type="date" id="ldate"></div><div><label>علامت</label><input id="lsym" list="symlist" placeholder="مثلا: خستگی"></div></div>
+<datalist id="symlist"><option>خستگی<option>بی‌حسی<option>گزگز<option>ضعف<option>تاری دید<option>سرگیجه<option>درد عصبی<option>اسپاسم<option>مشکل تعادل<option>مشکل مثانه<option>مشکل تمرکز<option>بی‌خوابی</datalist>
+<label>شدت: <b id="sevv">5</b> از ۱۰ (۰ = بدون علامت، ۱۰ = بسیار شدید)</label><input type="range" id="lsev" min="0" max="10" value="5" oninput="sevv.textContent=this.value">
+<label>توضیح (اختیاری)</label><textarea id="lnote" rows="2"></textarea><button class="pr" onclick="addLog()">ذخیره علامت</button></div>
+<div class="card"><h3>سابقه</h3><div id="loglist"></div></div></div>
 
-<!-- ثبت علائم -->
-<section class="page" id="p-log">
-  <h2>ثبت علائم</h2>
-  <div class="card">
-    <div class="row">
-      <div><label for="lDate">تاریخ</label><input type="date" id="lDate"></div>
-      <div><label for="lType">علامت</label><select id="lType"></select></div>
-    </div>
-    <label for="lSev">شدت: <b id="lSevV" style="color:var(--orange)">۵</b> از ۱۰ (۰ = بدون علامت، ۱۰ = بسیار شدید)</label>
-    <input type="range" id="lSev" min="0" max="10" value="5">
-    <label for="lNote">توضیح (اختیاری: چه زمانی شروع شد، چه چیزی آن را بدتر یا بهتر کرد)</label>
-    <textarea id="lNote" rows="3"></textarea>
-    <button class="btn" id="lSave">ذخیره علامت</button>
-  </div>
-  <div class="card"><h3>سابقه ثبت‌ها</h3><div id="logList"></div></div>
-</section>
+<div class="sec" id="trend"><div class="card"><h2>📈 تحلیل روند</h2><div id="trendbox"></div></div></div>
 
-<!-- تحلیل -->
-<section class="page" id="p-analysis">
-  <h2>تحلیل روند علائم</h2>
-  <div class="card"><h3>وضعیت کلی</h3><div id="anSummary"></div></div>
-  <div class="card"><h3>میانگین شدت علائم در ۳۰ روز گذشته</h3><div id="anChart" style="overflow-x:auto"></div></div>
-  <div class="card"><h3>مقایسه ۱۴ روز اخیر با ۱۴ روز قبل از آن</h3><div id="anTable"></div></div>
-  <p class="disc">این تحلیل فقط بر پایه داده‌هایی است که خودتان ثبت کرده‌اید و تشخیص پزشکی نیست. هرچه منظم‌تر ثبت کنید، دقیق‌تر می‌شود.</p>
-</section>
+<div class="sec" id="doc"><div class="card noprint"><h2>🩺 خلاصه برای پزشک</h2><label>بازه زمانی</label>
+<select id="rdays"><option value="30">۳۰ روز گذشته</option><option value="90">۹۰ روز گذشته</option><option value="180">۶ ماه گذشته</option><option value="9999">همه سابقه</option></select>
+<button class="pr" onclick="makeReport()">ساخت گزارش</button> <button onclick="window.print()">🖨 چاپ / ذخیره PDF</button></div><div class="card" id="rbox"></div></div>
 
-<!-- خلاصه پزشک -->
-<section class="page" id="p-doctor">
-  <h2>خلاصه برای ارائه به پزشک</h2>
-  <div class="noprint row" style="align-items:end">
-    <div><label for="dRange">بازه زمانی</label>
-      <select id="dRange"><option value="30">۳۰ روز گذشته</option><option value="90" selected>۹۰ روز گذشته</option><option value="180">۶ ماه گذشته</option><option value="3650">همه سابقه</option></select></div>
-    <div><button class="btn" onclick="window.print()">🖨 چاپ / ذخیره PDF</button></div>
-  </div>
-  <div id="docOut" style="margin-top:14px"></div>
-</section>
+<div class="sec" id="med"><div class="card"><h2>💊 افزودن دارو</h2>
+<div class="row"><div><label>نام دارو</label><input id="mname"></div><div><label>نوع</label><select id="mtype"><option>تزریقی<option>قرص<option>کپسول<option>سایر</select></div><div><label>دوز</label><input id="mdose"></div></div>
+<div class="row"><div><label>تکرار مصرف</label><select id="mfreq"><option value="1">هر روز<option value="2">یک روز در میان<option value="7">هفتگی<option value="14">هر دو هفته<option value="30">ماهانه<option value="182">هر ۶ ماه</select></div>
+<div><label>تاریخ شروع / آخرین مصرف</label><input type="date" id="mstart"></div></div><button class="pr" onclick="addMed()">افزودن دارو</button></div>
+<div class="card"><h3>داروهای من</h3><div id="medlist"></div></div>
+<div class="card"><h2>🧪 ثبت آزمایش و تصویربرداری</h2>
+<div class="row"><div><label>نوع (مثلا MRI، خون)</label><input id="ltype"></div><div><label>تاریخ</label><input type="date" id="ldt"></div><div><label>موعد بعدی (اختیاری)</label><input type="date" id="lnext"></div></div>
+<label>نتیجه / یادداشت</label><input id="lres"><button class="pr" onclick="addLab()">ذخیره آزمایش</button></div>
+<div class="card"><h3>سابقه آزمایش‌ها</h3><div id="lablist"></div></div></div>
 
-<!-- دارو و آزمایش -->
-<section class="page" id="p-meds">
-  <h2>دارو، تزریق و آزمایش</h2>
-  <div class="card">
-    <h3>افزودن دارو</h3>
-    <div class="row">
-      <div><label for="mName">نام دارو</label><input id="mName" placeholder="مثلاً اینترفرون، فینگولیمود، بکلوفن"></div>
-      <div><label for="mType">نوع</label><select id="mType"><option>تزریقی</option><option>قرص</option><option>کپسول</option><option>سایر</option></select></div>
-    </div>
-    <div class="row">
-      <div><label for="mDose">دوز</label><input id="mDose" placeholder="مثلاً ۳۰ میکروگرم / یک قرص"></div>
-      <div><label for="mFreq">تکرار مصرف</label>
-        <select id="mFreq"><option value="1">هر روز</option><option value="2">یک روز در میان</option><option value="7">هفتگی</option><option value="14">هر دو هفته</option><option value="30">ماهانه</option><option value="180">هر ۶ ماه</option></select></div>
-      <div><label for="mStart">تاریخ شروع / آخرین مصرف</label><input type="date" id="mStart"></div>
-    </div>
-    <button class="btn" id="mSave">افزودن دارو</button>
-  </div>
-  <div class="card"><h3>داروهای من</h3><div id="medList"></div></div>
+<div class="sec" id="bot"><div class="card"><h2>🤖 مشاور علائم</h2>
+<p class="small">با قوانین ثابت و پایگاه دانش کار می‌کند (بدون هوش مصنوعی و بدون اینترنت). علامت را بنویسید تا بررسی شود به ام‌اس مربوط است یا نه و چقدر فوری است.</p>
+<div id="chips" class="noprint"></div><div id="chatbox"></div><div class="row noprint" style="margin-top:8px"><input id="chatin" placeholder="مثلا: چشمم موقع حرکت درد می‌کند و تار می‌بینم"><button class="pr" onclick="send()" style="flex:0">ارسال</button></div></div></div>
 
-  <div class="card">
-    <h3>ثبت آزمایش و تصویربرداری</h3>
-    <div class="row">
-      <div><label for="aName">نوع آزمایش</label><input id="aName" placeholder="مثلاً MRI، ویتامین D، شمارش خون"></div>
-      <div><label for="aDate">تاریخ</label><input type="date" id="aDate"></div>
-      <div><label for="aNext">موعد بعدی (اختیاری)</label><input type="date" id="aNext"></div>
-    </div>
-    <label for="aRes">نتیجه / یادداشت</label><textarea id="aRes" rows="2"></textarea>
-    <button class="btn" id="aSave">ذخیره آزمایش</button>
-  </div>
-  <div class="card"><h3>سابقه آزمایش‌ها</h3><div id="labList"></div></div>
-</section>
-
-<!-- هوش مصنوعی -->
-<section class="page" id="p-ai">
-  <h2>مشاور هوشمند علائم</h2>
-  <p class="disc">علامتی را که دارید توضیح دهید. هوش مصنوعی بررسی می‌کند که آیا احتمالاً به ام‌اس مربوط است و چقدر فوری است. این یک راهنمای اولیه است و جایگزین پزشک نیست.</p>
-  <details class="card" id="aiSet">
-    <summary style="cursor:pointer;font-weight:700">⚙️ تنظیمات اتصال هوش مصنوعی</summary>
-    <label for="cProv">سرویس</label><select id="cProv"></select>
-    <label for="cUrl">آدرس سرویس (فقط برای «سرویس سفارشی»)</label><input id="cUrl" dir="ltr" placeholder="https://.../v1/chat/completions">
-    <label for="cKey">کلید API (در صورت نیاز)</label><input id="cKey" type="password" dir="ltr" placeholder="کلید را اینجا بچسبانید">
-    <label for="cModel">نام مدل</label><input id="cModel" dir="ltr">
-    <button class="btn" id="cSave">ذخیره تنظیمات</button>
-    <button class="btn sec" id="cTest">تست اتصال</button>
-    <p class="disc" id="cHelp"></p>
-  </details>
-  <div class="card">
-    <div id="redflag"></div>
-    <div id="chatbox"><div class="msg a">سلام. علامت خود را بنویسید: از کی شروع شده؟ چقدر شدید است؟ ناگهانی بوده یا تدریجی؟</div></div>
-    <div class="card" style="background:var(--navy);margin:10px 0">
-      <b>پرسیدن مستقیم از Claude با حساب خودتان</b>
-      <p class="disc">علامت را در کادر پایین بنویسید و این دکمه را بزنید. سوال شما همراه با دستورالعمل لازم در claude.ai باز می‌شود. با ایمیل گوگل وارد حساب خودتان شوید و ارسال کنید. اگر متن خودکار وارد نشد، همان متن کپی شده است؛ فقط Paste کنید.</p>
-      <button class="btn sec" id="askClaude">🔗 پرسیدن از Claude (با حساب من)</button>
-      <div id="askNote" class="disc" style="display:none"></div>
-    </div>
-    <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="useCtx" checked style="width:auto"> سابقه علائم اخیر من هم به مشاور داده شود</label>
-    <div class="row" style="align-items:end">
-      <div style="flex:4"><textarea id="chatIn" rows="2" placeholder="مثلاً: از دیروز پای چپم بی‌حس شده و تاری دید دارم..."></textarea></div>
-      <div><button class="btn" id="chatSend" style="width:100%">ارسال</button></div>
-    </div>
-  </div>
-</section>
-
-<!-- پشتیبان -->
-<section class="page" id="p-data">
-  <h2>پشتیبان‌گیری از اطلاعات</h2>
-  <div class="card">
-    <p>اطلاعات شما روی مرورگر همین دستگاه ذخیره می‌شود. برای انتقال به گوشی یا کامپیوتر دیگر، فایل پشتیبان بگیرید.</p>
-    <button class="btn" id="exp">⬇ دریافت فایل پشتیبان</button>
-    <label for="imp">بازیابی از فایل پشتیبان</label><input type="file" id="imp" accept=".json">
-    <button class="btn sec" id="wipe">🗑 پاک کردن همه اطلاعات</button>
-  </div>
-</section>
-
+<div class="sec" id="bak"><div class="card"><h2>💾 پشتیبان‌گیری</h2>
+<p>اطلاعات شما روی همین دستگاه ذخیره می‌شود. برای انتقال به دستگاه دیگر یا ایمن ماندن، فایل پشتیبان بگیرید.</p>
+<button class="pr" onclick="backup()">⬇ دریافت فایل پشتیبان</button>
+<label class="btn" style="display:inline-block">⬆ بازیابی از فایل<input type="file" accept=".json" onchange="restore(this)" style="display:none"></label>
+<button onclick="wipe()">🗑 پاک کردن همه اطلاعات</button><p id="bakinfo" class="small"></p></div></div>
 </main>
-
-<script>
-/* ===== تنظیمات ===== */
-const KEY='ms_companion_v1';
-// سرویس‌های هوش مصنوعی. از داخل خود برنامه (بخش «تنظیمات اتصال») قابل انتخاب است.
-const PROV={
-  pol0:{name:'Pollinations بدون کلید',model:'openai',key:false},
-  pol1:{name:'Pollinations با کلید رایگان',model:'openai',key:true,url:'https://gen.pollinations.ai/v1/chat/completions'},
-  gem:{name:'Google Gemini (کلید رایگان)',model:'gemini-2.5-flash',key:true},
-  or:{name:'OpenRouter (مدل‌های رایگان)',model:'meta-llama/llama-3.3-70b-instruct:free',key:true,url:'https://openrouter.ai/api/v1/chat/completions'},
-  groq:{name:'مدل رایگان OpenAI (gpt-oss) از طریق Groq ⭐',model:'openai/gpt-oss-120b',key:true,url:'https://api.groq.com/openai/v1/chat/completions'},
-  oa:{name:'ChatGPT / OpenAI (پولی)',model:'gpt-4o-mini',key:true,url:'https://api.openai.com/v1/chat/completions'},
-  claude:{name:'Claude با حساب خود کاربر (فقط در نسخه claude.ai) ⭐',model:'',key:false},
-  gapgpt:{name:'GapGPT (ChatGPT، مناسب ایران و تست لوکال) ⭐',model:'gpt-4o-mini',key:true,url:'https://api.gapgpt.app/v1/chat/completions'},
-  proxy:{name:'سرور واسط خودم (proxy.php) ⭐ مناسب ایران',model:'gpt-4o-mini',key:false,url:'proxy.php'},
-  custom:{name:'سرویس سفارشی (سازگار با OpenAI، مثلاً درگاه‌های ایرانی)',model:'gpt-4o-mini',key:true,url:''}
-};
-let CFG={p:(window.claude&&window.claude.use)?'claude':(location.protocol==='file:'?'gapgpt':'proxy'),key:'',model:'gpt-4o-mini',url:''};
-try{const c=JSON.parse(localStorage.getItem('ms_ai_cfg'));if(c)CFG=Object.assign(CFG,c)}catch(e){}
-async function callAI(msgs){
-  const p=CFG.p,model=CFG.model||PROV[p].model;
-  let res,data;
-  if(p==='claude'){
-    const sample=(window.claude&&window.claude.use)?await window.claude.use('sample'):null;
-    if(!sample)throw new Error('این گزینه فقط در صفحه‌ای که روی claude.ai منتشر شده کار می‌کند و باید با حساب Claude خودتان وارد شده باشید.');
-    let turns=msgs.slice(1);while(turns.length&&turns[0].role!=='user')turns=turns.slice(1);
-    turns=turns.map((m,i)=>({role:m.role,content:i===0?msgs[0].content+'\n\n--- پیام کاربر ---\n'+m.content:m.content}));
-    const r=await sample(turns,{cache:false});
-    return String(r.text||'').trim();
-  }
-  if(p==='pol0'){
-    res=await fetch('https://text.pollinations.ai/openai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,messages:msgs})});
-  }else if(p==='gem'){
-    const sys=msgs[0].content,rest=msgs.slice(1).map(m=>({role:m.role==='assistant'?'model':'user',parts:[{text:m.content}]}));
-    res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(CFG.key)}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({systemInstruction:{parts:[{text:sys}]},contents:rest})});
-    if(!res.ok)throw new Error('HTTP '+res.status+' '+(await res.text()).slice(0,200));
-    data=await res.json();return data.candidates[0].content.parts.map(x=>x.text).join('').trim();
-  }else{
-    const url=p==='custom'?CFG.url:PROV[p].url;
-    if(!url)throw new Error('آدرس سرویس وارد نشده است.');
-    const hd={'Content-Type':'application/json'};
-    if(PROV[p].key)hd.Authorization='Bearer '+CFG.key;
-    res=await fetch(url,{method:'POST',headers:hd,body:JSON.stringify({model,messages:msgs})});
-  }
-  if(!res.ok)throw new Error('HTTP '+res.status+' '+(await res.text()).slice(0,200));
-  data=await res.json();return data.choices[0].message.content.trim();
-}
-const SYMPTOMS=['خستگی','بی‌حسی یا مورمور','تاری یا دوبینی دید','ضعف عضلانی','اختلال تعادل و راه رفتن','درد','گرفتگی و سفتی عضلات (اسپاسم)','مشکل حافظه و تمرکز','مشکل مثانه یا روده','افسردگی و اضطراب','اختلال خواب','حساسیت به گرما','سایر'];
-
-/* ===== داده ===== */
-let S={symptoms:[],meds:[],labs:[]};
-try{const x=JSON.parse(localStorage.getItem(KEY));if(x)S=Object.assign(S,x)}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){alert('ذخیره‌سازی در مرورگر ممکن نیست.')}};
-const $=s=>document.querySelector(s);
-const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-const iso=d=>{const z=new Date(d.getTime()-d.getTimezoneOffset()*6e4);return z.toISOString().slice(0,10)};
-const today=()=>iso(new Date());
-const fa=n=>Number(n).toLocaleString('fa-IR');
-const fd=d=>d?new Date(d+'T12:00:00').toLocaleDateString('fa-IR'):'—';
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const addDays=(d,n)=>{const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+n);return iso(x)};
-const diffDays=(a,b)=>Math.round((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/864e5);
-const avg=a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:null;
-const sevTag=v=>v<=3?'t-ok':v<=6?'t-warn':'t-bad';
-
-/* ===== منو ===== */
-document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.p));
-function go(p){
-  document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('on',x.dataset.p===p));
-  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==='p-'+p));
-  ({home:renderHome,log:renderLog,analysis:renderAnalysis,doctor:renderDoctor,meds:renderMeds}[p]||(()=>{}))();
-  window.scrollTo(0,0);
-}
-
-/* ===== خانه ===== */
-function medStatus(m){
-  const last=m.lastTaken||m.start;
-  const due=addDays(last,Number(m.freq));
-  const d=diffDays(due,today());
-  return {due,d,txt:d<0?`${fa(-d)} روز عقب‌افتاده`:d===0?'امروز':`${fa(d)} روز دیگر`,cls:d<0?'t-bad':d===0?'t-warn':'t-ok'};
-}
-function renderHome(){
-  const t=today(),w=S.symptoms.filter(s=>diffDays(t,s.date)<7&&diffDays(t,s.date)>=0);
-  const a=avg(w.map(s=>s.sev));
-  $('#homeStats').innerHTML=`
-   <div class="card stat"><b>${fa(S.symptoms.length)}</b>علائم ثبت‌شده</div>
-   <div class="card stat"><b>${a==null?'—':fa(a.toFixed(1))}</b>میانگین شدت علائم در ۷ روز اخیر</div>
-   <div class="card stat"><b>${fa(S.meds.length)}</b>دارو در برنامه</div>
-   <div class="card stat"><b>${fa(S.labs.length)}</b>آزمایش ثبت‌شده</div>`;
-  const meds=S.meds.map(m=>({m,s:medStatus(m)})).sort((x,y)=>x.s.d-y.s.d).slice(0,4);
-  $('#homeMeds').innerHTML=meds.length?meds.map(x=>`<p>${esc(x.m.name)} (${esc(x.m.type)}) <span class="tag ${x.s.cls}">${x.s.txt}</span></p>`).join(''):'<div class="empty">هنوز دارویی اضافه نکرده‌اید.</div>';
-  const l=[...S.symptoms].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
-  $('#homeLast').innerHTML=l.length?l.map(s=>`<p>${fd(s.date)} — ${esc(s.type)} <span class="tag ${sevTag(s.sev)}">شدت ${fa(s.sev)}</span></p>`).join(''):'<div class="empty">هنوز علامتی ثبت نکرده‌اید. از «ثبت علائم» شروع کنید.</div>';
-}
-
-/* ===== ثبت علائم ===== */
-$('#lType').innerHTML=SYMPTOMS.map(s=>`<option>${s}</option>`).join('');
-$('#lDate').value=today();
-$('#lSev').oninput=e=>$('#lSevV').textContent=fa(e.target.value);
-$('#lSave').onclick=()=>{
-  if(!$('#lDate').value)return alert('تاریخ را انتخاب کنید.');
-  S.symptoms.push({id:uid(),date:$('#lDate').value,type:$('#lType').value,sev:Number($('#lSev').value),note:$('#lNote').value.trim()});
-  save();$('#lNote').value='';renderLog();
-};
-function renderLog(){
-  const l=[...S.symptoms].sort((a,b)=>b.date.localeCompare(a.date));
-  $('#logList').innerHTML=l.length?`<table><tr><th>تاریخ</th><th>علامت</th><th>شدت</th><th>توضیح</th><th></th></tr>`+l.map(s=>`<tr><td>${fd(s.date)}</td><td>${esc(s.type)}</td><td><span class="tag ${sevTag(s.sev)}">${fa(s.sev)}</span></td><td>${esc(s.note)}</td><td><button class="btn sm sec" onclick="delItem('symptoms','${s.id}',renderLog)">حذف</button></td></tr>`).join('')+'</table>':'<div class="empty">هنوز چیزی ثبت نشده.</div>';
-}
-function delItem(k,id,fn){if(confirm('حذف شود؟')){S[k]=S[k].filter(x=>x.id!==id);save();fn()}}
-
-/* ===== تحلیل ===== */
-function windowAvg(type,from,to){ // from..to روز قبل (شامل from، بدون to)
-  const t=today();
-  return avg(S.symptoms.filter(s=>(!type||s.type===type)&&diffDays(t,s.date)>=from&&diffDays(t,s.date)<to).map(s=>s.sev));
-}
-function renderAnalysis(){
-  const types=[...new Set(S.symptoms.map(s=>s.type))];
-  if(S.symptoms.length<3){
-    $('#anSummary').innerHTML='<div class="empty">برای تحلیل، حداقل چند بار علائم را در روزهای مختلف ثبت کنید.</div>';
-    $('#anChart').innerHTML='';$('#anTable').innerHTML='';return;
-  }
-  const rec=windowAvg(null,0,14),prev=windowAvg(null,14,28);
-  let msg,cls;
-  if(rec==null){msg='در ۱۴ روز اخیر علامتی ثبت نکرده‌اید.';cls='t-warn'}
-  else if(prev==null){msg=`میانگین شدت علائم شما در ۱۴ روز اخیر ${fa(rec.toFixed(1))} از ۱۰ است. برای مقایسه، داده‌های دوره قبل کافی نیست.`;cls='t-warn'}
-  else{
-    const d=rec-prev;
-    if(d>=1){msg=`روند علائم شما رو به بدتر شدن است (از ${fa(prev.toFixed(1))} به ${fa(rec.toFixed(1))}). اگر ادامه داشت، زودتر به پزشک خود اطلاع دهید.`;cls='t-bad'}
-    else if(d<=-1){msg=`روند علائم شما بهتر شده است (از ${fa(prev.toFixed(1))} به ${fa(rec.toFixed(1))}).`;cls='t-ok'}
-    else{msg=`علائم شما تقریباً ثابت مانده است (${fa(prev.toFixed(1))} و ${fa(rec.toFixed(1))}).`;cls='t-warn'}
-  }
-  $('#anSummary').innerHTML=`<span class="tag ${cls}" style="font-size:15px;white-space:normal">${msg}</span>`;
-
-  // نمودار ۳۰ روز
-  const W=640,H=210,P=34,pts=[];
-  for(let i=29;i>=0;i--){
-    const day=addDays(today(),-i),v=avg(S.symptoms.filter(s=>s.date===day).map(s=>s.sev));
-    pts.push({i:29-i,day,v});
-  }
-  const X=i=>P+(i/29)*(W-2*P),Y=v=>H-P-(v/10)*(H-2*P);
-  const have=pts.filter(p=>p.v!=null);
-  let svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:480px;direction:ltr" role="img" aria-label="نمودار روند علائم">`;
-  for(let g=0;g<=10;g+=2)svg+=`<line x1="${P}" x2="${W-P}" y1="${Y(g)}" y2="${Y(g)}" stroke="#22356B"/><text x="${P-8}" y="${Y(g)+4}" text-anchor="end">${g}</text>`;
-  [0,10,20,29].forEach(i=>svg+=`<text x="${X(i)}" y="${H-10}" text-anchor="middle">${new Date(pts[i].day+'T12:00:00').toLocaleDateString('fa-IR',{month:'numeric',day:'numeric'})}</text>`);
-  if(have.length>1)svg+=`<polyline fill="none" stroke="#F28C28" stroke-width="3" points="${have.map(p=>X(p.i)+','+Y(p.v)).join(' ')}"/>`;
-  have.forEach(p=>svg+=`<circle cx="${X(p.i)}" cy="${Y(p.v)}" r="4.5" fill="#F28C28"><title>${fd(p.day)}: ${p.v.toFixed(1)}</title></circle>`);
-  $('#anChart').innerHTML=svg+'</svg>';
-
-  // جدول هر علامت
-  $('#anTable').innerHTML='<table><tr><th>علامت</th><th>۱۴ روز قبل‌تر</th><th>۱۴ روز اخیر</th><th>روند</th></tr>'+types.map(t=>{
-    const r=windowAvg(t,0,14),p=windowAvg(t,14,28);
-    let tr='<span class="tag t-warn">داده کافی نیست</span>';
-    if(r!=null&&p!=null){const d=r-p;tr=d>=1?'<span class="tag t-bad">⬆ بدتر شده</span>':d<=-1?'<span class="tag t-ok">⬇ بهتر شده</span>':'<span class="tag t-warn">ثابت</span>'}
-    return `<tr><td>${esc(t)}</td><td>${p==null?'—':fa(p.toFixed(1))}</td><td>${r==null?'—':fa(r.toFixed(1))}</td><td>${tr}</td></tr>`}).join('')+'</table>';
-}
-
-/* ===== خلاصه پزشک ===== */
-$('#dRange').onchange=renderDoctor;
-function renderDoctor(){
-  const n=Number($('#dRange').value),t=today();
-  const l=S.symptoms.filter(s=>diffDays(t,s.date)<=n);
-  const types=[...new Set(l.map(s=>s.type))];
-  let h=`<div class="card"><h3>گزارش وضعیت بیمار ام‌اس</h3><p>تاریخ تهیه گزارش: ${fd(t)} — بازه: ${n>=3650?'کل سابقه':fa(n)+' روز گذشته'}</p></div>`;
-  h+='<div class="card"><h3>خلاصه علائم</h3>';
-  h+=types.length?'<table><tr><th>علامت</th><th>تعداد ثبت</th><th>میانگین شدت</th><th>بیشترین شدت</th><th>آخرین ثبت</th><th>روند (۱۴ روز اخیر)</th></tr>'+types.map(tp=>{
-    const x=l.filter(s=>s.type===tp),last=[...x].sort((a,b)=>b.date.localeCompare(a.date))[0];
-    const r=windowAvg(tp,0,14),p=windowAvg(tp,14,28);
-    const tr=(r!=null&&p!=null)?(r-p>=1?'بدتر':r-p<=-1?'بهتر':'ثابت'):'—';
-    return `<tr><td>${esc(tp)}</td><td>${fa(x.length)}</td><td>${fa(avg(x.map(s=>s.sev)).toFixed(1))}</td><td>${fa(Math.max(...x.map(s=>s.sev)))}</td><td>${fd(last.date)}</td><td>${tr}</td></tr>`}).join('')+'</table>':'<div class="empty">در این بازه علامتی ثبت نشده.</div>';
-  h+='</div>';
-  const notes=l.filter(s=>s.note).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,15);
-  if(notes.length)h+='<div class="card"><h3>توضیحات بیمار</h3>'+notes.map(s=>`<p>${fd(s.date)} — <b>${esc(s.type)}</b> (شدت ${fa(s.sev)}): ${esc(s.note)}</p>`).join('')+'</div>';
-  h+='<div class="card"><h3>داروهای فعلی</h3>'+(S.meds.length?'<table><tr><th>دارو</th><th>نوع</th><th>دوز</th><th>تکرار</th><th>آخرین مصرف</th></tr>'+S.meds.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.type)}</td><td>${esc(m.dose)}</td><td>${freqName(m.freq)}</td><td>${fd(m.lastTaken||m.start)}</td></tr>`).join('')+'</table>':'<div class="empty">دارویی ثبت نشده.</div>')+'</div>';
-  h+='<div class="card"><h3>آزمایش‌ها و تصویربرداری‌ها</h3>'+(S.labs.length?'<table><tr><th>نوع</th><th>تاریخ</th><th>نتیجه</th></tr>'+[...S.labs].sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<tr><td>${esc(x.name)}</td><td>${fd(x.date)}</td><td>${esc(x.result)}</td></tr>`).join('')+'</table>':'<div class="empty">آزمایشی ثبت نشده.</div>')+'</div>';
-  $('#docOut').innerHTML=h;
-}
-
-/* ===== دارو و آزمایش ===== */
-const FREQ={1:'هر روز',2:'یک روز در میان',7:'هفتگی',14:'هر دو هفته',30:'ماهانه',180:'هر ۶ ماه'};
-const freqName=f=>FREQ[f]||fa(f)+' روز یک‌بار';
-$('#mStart').value=today();$('#aDate').value=today();
-$('#mSave').onclick=()=>{
-  const name=$('#mName').value.trim();if(!name)return alert('نام دارو را بنویسید.');
-  S.meds.push({id:uid(),name,type:$('#mType').value,dose:$('#mDose').value.trim(),freq:Number($('#mFreq').value),start:$('#mStart').value||today(),lastTaken:null,history:[]});
-  save();$('#mName').value='';$('#mDose').value='';renderMeds();
-};
-$('#aSave').onclick=()=>{
-  const name=$('#aName').value.trim();if(!name)return alert('نوع آزمایش را بنویسید.');
-  S.labs.push({id:uid(),name,date:$('#aDate').value||today(),next:$('#aNext').value,result:$('#aRes').value.trim()});
-  save();$('#aName').value='';$('#aRes').value='';$('#aNext').value='';renderMeds();
-};
-function taken(id){const m=S.meds.find(x=>x.id===id);m.lastTaken=today();(m.history=m.history||[]).push(today());save();renderMeds()}
-function renderMeds(){
-  $('#medList').innerHTML=S.meds.length?'<table><tr><th>دارو</th><th>دوز و تکرار</th><th>نوبت بعدی</th><th></th></tr>'+S.meds.map(m=>{const s=medStatus(m);
-    return `<tr><td><b>${esc(m.name)}</b><br><small>${esc(m.type)}</small></td><td>${esc(m.dose)}<br><small>${freqName(m.freq)}</small></td><td>${fd(s.due)}<br><span class="tag ${s.cls}">${s.txt}</span></td><td><button class="btn sm" onclick="taken('${m.id}')">✔ مصرف کردم</button> <button class="btn sm sec" onclick="delItem('meds','${m.id}',renderMeds)">حذف</button></td></tr>`}).join('')+'</table>':'<div class="empty">هنوز دارویی اضافه نکرده‌اید.</div>';
-  $('#labList').innerHTML=S.labs.length?'<table><tr><th>آزمایش</th><th>تاریخ</th><th>نتیجه</th><th>موعد بعدی</th><th></th></tr>'+[...S.labs].sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<tr><td>${esc(x.name)}</td><td>${fd(x.date)}</td><td>${esc(x.result)}</td><td>${x.next?fd(x.next):'—'}</td><td><button class="btn sm sec" onclick="delItem('labs','${x.id}',renderMeds)">حذف</button></td></tr>`).join('')+'</table>':'<div class="empty">هنوز آزمایشی ثبت نشده.</div>';
-}
-
-/* ===== مشاور هوشمند ===== */
-// بررسی محلی علائم خطرناک (حتی اگر اینترنت یا سرویس هوش مصنوعی قطع باشد)
-const RED=/نمی‌?بینم|از دست دادن (ناگهانی )?بینایی|کوری|فلج|نمی‌?توانم (راه|حرکت|دست|پا)|نفس.*(سخت|نمی)|تنگی نفس|بلع|قورت|تشنج|غش|بیهوش|درد قفسه|درد سینه|سکته|گیجی شدید|حرف.*(نمی‌?توانم|نمی‌?زنم)|صورتم کج|خودکشی|خودم را بکشم|تب.*(بالا|۴۰|40)|کنترل (ادرار|مدفوع).*(ناگهان|یکدفعه)/;
-const SYS=`تو یک دستیار آموزشی فارسی‌زبان برای بیماران مبتلا به مولتیپل اسکلروزیس (ام‌اس) هستی. تشخیص قطعی نمی‌دهی و جایگزین پزشک نیستی.
-کاربر علامتی را شرح می‌دهد. پاسخ را دقیقاً با این ساختار و به فارسی ساده بده:
-۱) سطح فوریت: یکی از این سه مورد را در خط اول بنویس:
- «🔴 فوری: همین حالا به اورژانس/بیمارستان بروید»
- «🟠 زودتر: ظرف یکی دو روز با پزشک تماس بگیرید»
- «🟢 عادی: در اولین نوبت با پزشک مطرح کنید»
-۲) ارتباط با ام‌اس: آیا این علامت می‌تواند به ام‌اس یا عود (حمله) آن مربوط باشد؟ یا علت‌های شایع دیگر (عفونت، گرما، خستگی، عوارض دارو، کم‌آبی) هم محتمل است؟
-۳) چند توصیه ساده و ایمن تا زمان ویزیت.
-۴) در یک خط، چه علائمی باید حتماً باعث مراجعه فوری شوند.
-قوانین: علائم ناگهانی و شدید مثل افت ناگهانی بینایی، ضعف یا فلج تازه، اختلال گفتار یا بلع، تنگی نفس، تشنج، تب بالا همراه علائم عصبی، قفسه سینه، از دست رفتن کنترل ادرار یا مدفوع، یا افکار خودکشی را همیشه فوری طبقه‌بندی کن. در شک بین دو سطح، سطح فوری‌تر را انتخاب کن. هرگز دوز دارو تجویز یا قطع دارو را توصیه نکن؛ ارجاع به پزشک معالج بده. کوتاه و روشن بنویس.`;
-const hist=[];
-function addMsg(t,c){const d=document.createElement('div');d.className='msg '+c;d.textContent=t;$('#chatbox').appendChild(d);$('#chatbox').scrollTop=1e9;return d}
-async function sendChat(){
-  const txt=$('#chatIn').value.trim();if(!txt)return;
-  $('#chatIn').value='';addMsg(txt,'u');
-  $('#redflag').innerHTML=RED.test(txt)?'<div class="alert">⚠️ شرح شما می‌تواند نشانه وضعیت اورژانسی باشد. اگر علامت فعلی و شدید است، منتظر پاسخ نمانید و با اورژانس (۱۱۵) تماس بگیرید یا به نزدیک‌ترین بیمارستان بروید.</div>':'';
-  let ctx='';
-  if($('#useCtx').checked){
-    const r=S.symptoms.filter(s=>diffDays(today(),s.date)<=30).slice(-15).map(s=>`${s.date}: ${s.type} شدت ${s.sev}`).join('\n');
-    const m=S.meds.map(m=>m.name).join('، ');
-    if(r||m)ctx=`\n\n[سابقه کاربر برای اطلاع: علائم اخیر:\n${r||'—'}\nداروها: ${m||'—'}]`;
-  }
-  hist.push({role:'user',content:txt+ctx});
-  const wait=addMsg('در حال بررسی…','a');
-  $('#chatSend').disabled=true;
-  try{
-    if(PROV[CFG.p].key&&!CFG.key)throw new Error('کلید API وارد نشده است. در «تنظیمات اتصال» همین صفحه کلید را وارد کنید.');
-    const out=await callAI([{role:'system',content:SYS},...hist.slice(-8)]);
-    hist.push({role:'assistant',content:out});wait.textContent=out;
-  }catch(e){
-    hist.pop();
-    wait.textContent='اتصال به سرویس هوش مصنوعی برقرار نشد.\nعلت فنی: '+e.message+'\n\nراه‌حل: در «تنظیمات اتصال» (بالای همین صفحه) یک سرویس دیگر انتخاب کنید یا کلید رایگان وارد کنید. اگر علامت شما ناگهانی یا شدید است، منتظر نمانید و با پزشک یا اورژانس (۱۱۵) تماس بگیرید.';
-  }
-  $('#chatSend').disabled=false;$('#chatbox').scrollTop=1e9;
-}
-const HELP={
-  pol0:'بدون کلید کار می‌کند ولی ممکن است محدود، کند یا از بعضی کشورها (مثلاً با IP ایران) مسدود باشد. اگر وصل نشد، سرویس دیگری انتخاب کنید.',
-  pol1:'کلید رایگان را از سایت enter.pollinations.ai بگیرید و اینجا بچسبانید.',
-  gem:'کلید رایگان را از سایت aistudio.google.com/apikey بگیرید. اگر نام مدل خطا داد، نام مدل فعلی را از همان سایت جایگزین کنید. ممکن است برای کاربران داخل ایران نیاز به فیلترشکن داشته باشد.',
-  or:'در سایت openrouter.ai ثبت‌نام کنید و کلید بگیرید. فقط مدل‌هایی که نامشان به «:free» ختم می‌شود رایگان‌اند.',
-  groq:'مدل gpt-oss ساخته OpenAI است و روی Groq رایگان اجرا می‌شود (بدون کارت بانکی، با سقف استفاده). کلید را از console.groq.com/keys بگیرید. اگر خطای «model not found» آمد، نام مدل را به openai/gpt-oss-20b تغییر دهید.',
-  claude:'هوش مصنوعی با حساب Claude خودِ کاربر کار می‌کند (ورود با ایمیل گوگل). هزینه و سقف استفاده روی حساب خود کاربر است و کلیدی لازم نیست. فقط در نسخه‌ای کار می‌کند که روی claude.ai منتشر شده، نه روی دامنه شخصی.',
-  gapgpt:'کلید GapGPT خودتان را در کادر «کلید API» بچسبانید. فقط روی همین مرورگر ذخیره می‌شود و برای تست لوکال مناسب است. وقتی سایت را عمومی کردید، کلید را در proxy.php بگذارید و سرویس را روی «سرور واسط» تنظیم کنید. اگر نام مدل خطا داد، نام مدل‌های حساب خود را از پنل GapGPT ببینید.',
-  proxy:'پیشنهاد برای کاربران ایران: فایل proxy.php را روی هاستی خارج از ایران کنار index.html بگذارید و کلید Groq را فقط داخل آن فایل بنویسید. کاربران هیچ کلیدی لازم ندارند.',
-  custom:'آدرس کامل سرویس (مثلاً درگاه‌های ایرانی سازگار با OpenAI)، کلید و نام مدل را از همان سرویس بگیرید.',
-  oa:'کلید را از platform.openai.com/api-keys بگیرید. این سرویس پولی است (اشتراک ChatGPT Plus کلید API نمی‌دهد و جداست) و از ایران قابل دسترس نیست.'
-};
-$('#cProv').innerHTML=Object.keys(PROV).map(k=>`<option value="${k}">${PROV[k].name}</option>`).join('');
-function fillCfg(){$('#cProv').value=CFG.p;$('#cUrl').value=CFG.url||'';$('#cKey').value=CFG.key;$('#cModel').value=CFG.model;$('#cHelp').textContent=HELP[CFG.p]}
-fillCfg();
-$('#cProv').onchange=()=>{CFG.p=$('#cProv').value;CFG.model=PROV[CFG.p].model;CFG.key=CFG.p===($('#cProv').dataset.last||'')?CFG.key:'';fillCfg();$('#cProv').dataset.last=CFG.p};
-function saveCfg(){CFG={p:$('#cProv').value,url:$('#cUrl').value.trim(),key:$('#cKey').value.trim(),model:$('#cModel').value.trim()||PROV[$('#cProv').value].model};try{localStorage.setItem('ms_ai_cfg',JSON.stringify(CFG))}catch(e){}}
-$('#cSave').onclick=()=>{saveCfg();alert('تنظیمات ذخیره شد.')};
-$('#cTest').onclick=async()=>{
-  saveCfg();$('#cHelp').textContent='در حال تست…';
-  try{if(PROV[CFG.p].key&&!CFG.key)throw new Error('کلید وارد نشده است.');
-    const r=await callAI([{role:'system',content:'کوتاه جواب بده.'},{role:'user',content:'بنویس: اتصال برقرار است'}]);
-    $('#cHelp').textContent='✅ اتصال موفق بود: '+r}
-  catch(e){$('#cHelp').textContent='❌ خطا: '+e.message+' — '+HELP[CFG.p]}
-};
-if(PROV[CFG.p].key&&!CFG.key)$('#aiSet').open=true;
-$('#askClaude').onclick=async()=>{
-  const txt=$('#chatIn').value.trim();
-  if(!txt)return alert('ابتدا علامت خود را در کادر پایین بنویسید.');
-  $('#redflag').innerHTML=RED.test(txt)?'<div class="alert">⚠️ شرح شما می‌تواند نشانه وضعیت اورژانسی باشد. اگر علامت فعلی و شدید است، منتظر پاسخ نمانید و با اورژانس (۱۱۵) تماس بگیرید یا به نزدیک‌ترین بیمارستان بروید.</div>':'';
-  let ctx='';
-  if($('#useCtx').checked){
-    const r=S.symptoms.filter(s=>diffDays(today(),s.date)<=30).slice(-8).map(s=>`${s.date}: ${s.type} شدت ${s.sev}`).join('\n');
-    const m=S.meds.map(m=>m.name).join('، ');
-    if(r||m)ctx=`\n\nسابقه من برای اطلاع: علائم اخیر:\n${r||'—'}\nداروها: ${m||'—'}`;
-  }
-  const prompt=`تو دستیار آموزشی برای بیماران مبتلا به ام‌اس هستی و جایگزین پزشک نیستی. به فارسی ساده و کوتاه جواب بده. خط اول فقط یکی از این‌ها باشد: «🔴 فوری: همین حالا به اورژانس بروید» یا «🟠 ظرف یکی دو روز با پزشک تماس بگیرید» یا «🟢 در اولین نوبت به پزشک بگویید». بعد بگو آیا این علامت می‌تواند به ام‌اس یا عود آن مربوط باشد یا علت‌های دیگر هم محتمل است، چند توصیه ایمن تا ویزیت، و چه علائمی باید باعث مراجعه فوری شوند. اگر علامت ناگهانی و شدید است (افت بینایی، ضعف یا فلج تازه، اختلال گفتار یا بلع، تنگی نفس، تشنج، کنترل ادرار) همیشه فوری اعلام کن. دوز دارو تجویز نکن و قطع دارو را توصیه نکن.\n\nعلامت من: ${txt}${ctx}`;
-  let copied=false;
-  try{await navigator.clipboard.writeText(prompt);copied=true}catch(e){}
-  const n=$('#askNote');n.style.display='block';
-  n.textContent=copied?'متن سوال کپی شد و claude.ai در تب جدید باز می‌شود. اگر کادر خالی بود، Paste کنید و ارسال بزنید.':'claude.ai در تب جدید باز می‌شود. اگر متن وارد نشد، علامت خود را دستی بنویسید.';
-  window.open('https://claude.ai/new?q='+encodeURIComponent(prompt),'_blank','noopener');
-};
-$('#chatSend').onclick=sendChat;
-$('#chatIn').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat()}};
-
-/* ===== پشتیبان ===== */
-$('#exp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'}));a.download='ms-backup-'+today()+'.json';a.click()};
-$('#imp').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.symptoms)throw 0;S=Object.assign({symptoms:[],meds:[],labs:[]},x);save();alert('اطلاعات بازیابی شد.');go('home')}catch(_){alert('فایل معتبر نیست.')}};r.readAsText(f)};
-$('#wipe').onclick=()=>{if(confirm('همه اطلاعات برای همیشه پاک شود؟')){S={symptoms:[],meds:[],labs:[]};save();go('home')}};
-
-renderHome();
-</script>
+<script src="kb.js"></script>
+<script src="engine.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
