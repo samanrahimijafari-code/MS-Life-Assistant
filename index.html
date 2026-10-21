@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1b2a5e">
 <title>همراه ام‌اس</title>
 <style>
-:root{--bg:#fdf8f3;--card:#fff;--tx:#2b2b2b;--mu:#777;--pr:#e8741a;--bd:#eadfd3}
-@media(prefers-color-scheme:dark){:root{--bg:#1c1917;--card:#292524;--tx:#f5f5f4;--mu:#a8a29e;--pr:#fb923c;--bd:#44403c}}
+:root{--bg:#f3f5fb;--card:#fff;--tx:#16214d;--mu:#5b6688;--pr:#e0620d;--prtx:#fff;--bd:#d8def0;--nv:#1b2a5e}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1531;--card:#162049;--tx:#eef1ff;--mu:#9ba7d0;--pr:#ff9a33;--prtx:#0d1531;--bd:#2a3a72;--nv:#09102a}}
 *{box-sizing:border-box}body{margin:0;font-family:Tahoma,Vazirmatn,sans-serif;background:var(--bg);color:var(--tx);line-height:1.9}
-header{background:var(--card);border-bottom:1px solid var(--bd);padding:8px 14px;position:sticky;top:0;z-index:5}
-header h1{margin:0 0 4px;font-size:18px}nav{display:flex;gap:6px;flex-wrap:wrap}
+header{background:var(--nv);color:#fff;border-bottom:4px solid var(--pr);padding:8px 14px;position:sticky;top:0;z-index:5}
+header h1{margin:0 0 4px;font-size:18px;color:#fff}nav{display:flex;gap:6px;flex-wrap:wrap}
 button,.btn{background:var(--card);border:1px solid var(--bd);color:var(--tx);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit}
-nav button.on,button.pr{background:var(--pr);color:#fff;border-color:var(--pr)}
+nav button{background:transparent;color:#fff;border-color:#ffffff4d}
+nav button.on,button.pr{background:var(--pr);color:var(--prtx);border-color:var(--pr);font-weight:bold}
 main{max-width:860px;margin:14px auto;padding:0 12px}.sec{display:none}.sec.on{display:block}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-top:3px solid var(--pr);border-radius:12px;padding:14px;margin-bottom:12px}
 input,select,textarea{width:100%;padding:8px;margin:3px 0 10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
 label{font-size:14px;color:var(--mu)}h2,h3{margin:4px 0 10px}.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1;min-width:130px}
-table{width:100%;border-collapse:collapse;font-size:14px}td,th{border:1px solid var(--bd);padding:5px;text-align:right}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{border:1px solid var(--bd);padding:5px;text-align:right}th{background:var(--bg);color:var(--pr)}
 .bar{height:14px;background:var(--pr);border-radius:4px}.small{font-size:12px;color:var(--mu)}
 .warn{background:#fef3c7;color:#92400e;padding:8px 10px;border-radius:8px;font-size:13px;margin-bottom:10px}
 .late{color:#dc2626;font-weight:bold}.msg{padding:10px;border-radius:10px;margin:6px 0;white-space:pre-wrap}
-.me{background:var(--pr);color:#fff}.bot{background:var(--bg);border:1px solid var(--bd)}
+.me{background:var(--nv);color:#fff}.bot{background:var(--bg);border:1px solid var(--bd)}
 .l3{border-right:6px solid #dc2626}.l2{border-right:6px solid #f59e0b}.l1{border-right:6px solid #16a34a}
 #chatbox{max-height:430px;overflow:auto}
 @media print{header,.noprint{display:none!important}body{background:#fff;color:#000}.card{border:none}}
@@ -80,7 +82,7 @@ var KB = [
 // ---------- اورژانس ----------
 K('افکار آسیب به خود', ['خودکشی', 'بمیرم', 'نمیخوامزنده', 'خودمروبکشم', 'خودمرابکشم', 'آسیببهخودم', 'نمیخوامادامهبدم'], 'no', 3, 'جان شما مهم است. همین الان با ۱۱۵ یا خط مشاوره ۱۴۸۰ (بهزیستی) تماس بگیرید یا نزد یک فرد مورد اعتماد بروید. تنها نمانید.', 'راهنمای بحران'),
 K('علائم سکته مغزی', ['صورت|لب|دهان+کج|افتاده|شل', 'ناگهان|یهو|یکدفعه+حرفزدن|حرفبزنم|تکلم|زبانم|لکنت', 'ناگهان|یهو|یکدفعه+یکطرف', 'زبانم+گرفته'], 'no', 3, 'ناگهانی بودن این علائم می‌تواند نشانه سکته مغزی باشد، حتی در بیماران ام‌اس. فورا با ۱۱۵ تماس بگیرید و زمان شروع علائم را به یاد داشته باشید.', 'NHS (FAST)'),
-K('درد قفسه سینه یا تنگی نفس', ['دردقفسه', 'دردسینه', 'فشاربرسینه', 'تنگینفس', 'نفسم+بند', 'نمیتونمنفس', 'نفسکشیدن+سخت'], 'no', 3, 'فورا به اورژانس مراجعه کنید یا با ۱۱۵ تماس بگیرید.', 'راهنمای اورژانس'),
+K('درد قفسه سینه یا تنگی نفس', ['دردقفسه', 'دردسینه', 'فشاربرسینه', 'فشارروی+سینه', 'تنگینفس', 'نفسم+بند', 'نمیتونمنفس', 'نفسکشیدن+سخت'], 'no', 3, 'فورا به اورژانس مراجعه کنید یا با ۱۱۵ تماس بگیرید.', 'راهنمای اورژانس'),
 K('تشنج یا از دست دادن هوشیاری', ['تشنج', 'غشکردم', 'غشمیکنم', 'ازهوشرفتم', 'بیهوش', 'ازحالرفتم'], 'maybe', 3, 'تشنج یا از دست دادن هوشیاری نیاز به بررسی فوری دارد. به اورژانس مراجعه کنید.', 'NMSS'),
 K('فلج ناگهانی یا از دست رفتن کنترل ادرار/مدفوع', ['ناگهان|یهو|یکدفعه+پام|پاها|پاهام+ضعیف|سست|شل', 'فلج', 'نمیتونمراهبرم', 'نمیتونمبایستم', '!کنترل+ادرار|مدفوع+ازدست|ندارم|نمیتونم|رفته', '!بیاختیاری+ادرار|مدفوع', 'بیحس+بینپا|ناحیهتناسلی|مقعد'], 'maybe', 3, 'ضعف ناگهانی پاها، ناتوانی در راه رفتن یا از دست رفتن کنترل ادرار/مدفوع می‌تواند فوریت نخاعی باشد. فورا به اورژانس بروید.', 'NMSS / NHS'),
 K('تب همراه با علائم عفونت مغزی', ['تب+گردن+خشک|سفت', 'تب+سردردشدید', 'نور+اذیت+تب'], 'no', 3, 'این ترکیب می‌تواند نشانه عفونت جدی مغز باشد. فورا به اورژانس بروید.', 'راهنمای اورژانس'),
@@ -104,6 +106,10 @@ K('گرفتگی و سفتی عضله', ['گرفتگی', 'سفتی+عضله', 'ع
 K('درد عصبی', ['دردعصبی', 'سوزش+پوست', 'برقگرفتگی', 'لرمیت', 'شوک+گردن', 'شوکالکتریکی', 'دردصورت'], 'yes', 1, 'درد عصبی و علامت لرمیت (احساس شوک با خم کردن گردن) در ام‌اس شناخته‌شده است. در ویزیت بعدی مطرح کنید.', 'NMSS / MS Society UK', [['درد شدید و غیرقابل تحمل است؟', 2]]),
 K('درد در بدن', ['درد+کمر|گردن|پا|پام|دست|دستم|عضله|بدن|مفصل', 'کمردرد', 'دردبدن'], 'maybe', 1, 'درد می‌تواند علل مختلفی داشته باشد (اسپاسم، درد عصبی یا علل عضلانی-اسکلتی). محل، شدت و زمان درد را یادداشت کنید و در ویزیت بعدی مطرح کنید.', 'NMSS / NHS', [['درد شدید و غیرقابل تحمل است؟', 2]]),
 K('لرزش دست', ['دستم+میلرزه|لرزش', 'دستام+میلرزه|لرزش', 'دستها+میلرزه|لرزش', 'لرزشدست'], 'yes', 1, 'لرزش در ام‌اس دیده می‌شود. در ویزیت بعدی مطرح کنید؛ کاردرمانی و دارو ممکن است کمک کند.', 'NMSS', [['لرزش ناگهانی شروع شده و کارهای روزمره را مختل کرده؟', 2]]),
+K('احساس غیرعادی روی پوست (حشره‌رفتن، سوزش، خارش)', ['حشره', 'مورچه', 'میخزه|میخزد|خزیدن|راهمیره|راهمیرن|میلولن', 'کرم+پوست|زیرپوست', 'زیرپوست', 'پوست+میسوزه|میسوزد|حساس|درد|خارش|احساس|سوزن|برق|داغ|یخ|سرد|خزیدن', 'خارش+بدن|پوست|دست|پا|صورت', 'کفپا+سوزش|میسوزه', 'لمس+درد|میسوزه|اذیت'], 'yes', 1, 'احساسات غیرعادی پوست مثل حشره‌رفتن، مورمور، سوزش، خارش بدون بثورات یا حساسیت به لمس (دیس‌استزی) در ام‌اس شناخته‌شده است. تاریخ شروع و محل را یادداشت کنید. اگر جدید است یا بیش از ۲۴ ساعت ادامه دارد به پزشک خبر دهید.', 'NMSS / MS Society UK', [['این احساس مداوم است و آزاردهنده بوده یا خواب را مختل کرده؟', 2]]),
+K('احساس فشار یا کمربند دور بدن', ['کمربند+دور|کمر|سینه|شکم', 'فشار+دورکمر|دورسینه|دورشکم|دورتنه', 'حلقه+دورکمر|دورسینه', 'سینه+فشرده|میفشره'], 'yes', 2, 'احساس کمربند یا فشار دور تنه (به آن «ام‌اس هاگ» هم می‌گویند) در ام‌اس شناخته‌شده است. در اولین فرصت به پزشک اطلاع دهید. چون علائم قلبی هم می‌توانند مشابه باشند، با درد قفسه سینه یا تنگی نفس فورا به اورژانس بروید.', 'NMSS', [['درد قفسه سینه، تنگی نفس یا عرق سرد هم دارید؟', 3]]),
+K('افتادگی پا هنگام راه رفتن', ['پا+زمین+میکشم|میکشه', 'افتادگیپا', 'پام+بالانمیاد|بالانمیره', 'پا+لنگ'], 'yes', 2, 'کشیده‌شدن یا افتادگی پا می‌تواند نشانه ضعف عضلات باشد. در اولین فرصت با نورولوژیست یا فیزیوتراپیست مشورت کنید.', 'NMSS'),
+K('مشکلات جنسی', ['!میلجنسی', 'جنسی+مشکل|کم|نمیتونم', 'نعوظ'], 'maybe', 1, 'مشکلات جنسی در ام‌اس شایع است و دلایل جسمی و روانی دارد. در ویزیت بعدی با پزشک در میان بگذارید؛ راه‌های درمان وجود دارد.', 'NMSS / MS Society UK'),
 K('مشکل حافظه و تمرکز', ['حافظه', 'فراموش', 'تمرکز', 'مهمغزی', 'ذهنمکند', '!حواسم+نیست|پرته'], 'yes', 1, 'مشکلات شناختی خفیف در ام‌اس شایع است. یادداشت‌برداری و یادآور کمک می‌کند. در ویزیت بعدی مطرح کنید.', 'NMSS'),
 K('مشکل خواب', ['بیخوابی', 'نمیخوابم', 'خوابمنمیبره', 'خوابمنمیاد', 'خوابم+نمیبره'], 'maybe', 1, 'بی‌خوابی می‌تواند به درد، اسپاسم، مثانه یا اضطراب مربوط باشد. ساعت خواب منظم داشته باشید و در ویزیت بعدی مطرح کنید.', 'NMSS / NHS'),
 K('یبوست', ['یبوست', 'دلپیچه', 'مدفوع+سفت|سخت'], 'maybe', 1, 'مشکلات روده در ام‌اس شایع است. آب، فیبر و تحرک کمک می‌کند. اگر بیش از چند روز طول کشید با پزشک مشورت کنید.', 'NMSS / NHS'),
